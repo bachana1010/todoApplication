@@ -1,0 +1,14 @@
+<div class="header">
+  <h1>bacho's To Do App</h1>
+</div>
+<div>
+  <input class="input_id" [(ngModel)]="newTaskDescription" type="text" placeholder="enter task here">
+  <button id="button_add" (click)="addTask();playNotificationSound()">Button</button>
+  <audio #notificationSound src="assets/notification.mp3"></audio>
+</div>
+
+
+
+<app-incomplete [todo_incomplete]="todos" [incompleteSound]="'/assets/UnDone.mp3'"></app-incomplete>
+
+<app-complete [todos_complete]="todos"  [completeSound]="'/assets/Done.mp3'"></app-complete>

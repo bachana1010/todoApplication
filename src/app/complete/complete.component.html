@@ -1,0 +1,28 @@
+<ng-container *ngIf="countCompletedTasks() > 0">
+
+    <h2>Complete Tasks</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Description</th>
+          <th>Done</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let todo of todos_complete">
+          <tr [appTaskStatusColor]="todo.done" *ngIf="todo.done">
+            <td>{{ todo.id }}</td>
+            <td>{{ todo.description }}</td>
+            <td>
+              <input type="checkbox" name="done_checkbox" [(ngModel)]="todo.done" value="done" (change)="UnDoneNotification()"> 
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </ng-container>
+  <div class="task-summary">
+    <p appHoverTextColor="pink">Complete: {{ countCompletedTasks() }}</p>
+  </div>
+  
